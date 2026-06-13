@@ -1,4 +1,4 @@
-# 🚀 Term Project: Scalable & Resilient Microservices with MicroK8s
+# 🚀 Scalable & Resilient Microservices with MicroK8s
 
 ## 📌 Overview
 This is a simple project showing how a basic microservices setup can run locally using MicroK8s.
