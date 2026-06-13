@@ -65,6 +65,7 @@ microk8s enable dns registry ingress metrics-server
 alias kubectl='microk8s kubectl'
 ```
 
+---
 
 ## 📁 Project Structure
 ```
@@ -78,6 +79,7 @@ Dockerfile
 README.md
 ```
 
+---
 
 ## 🧠 Resource Limits
 Set in `k8s/deployment.yaml`:
@@ -89,6 +91,7 @@ Set in `k8s/deployment.yaml`:
 
 This helps prevent crashes if the machine is limited.
 
+---
 
 ## 🚀 Deployment
 
@@ -114,6 +117,7 @@ kubectl apply -f k8s/
 kubectl get deployments,pods,services,ingress,hpa
 ```
 
+---
 
 ## ✅ Testing
 
@@ -163,6 +167,8 @@ kubectl get hpa -w
 ```
 
 Pods should scale up when load increases.
+
+---
 
 ## 🏁 Conclusion
 This project is just a small demo, but it shows how scaling, load balancing, and self-healing work together in Kubernetes.
