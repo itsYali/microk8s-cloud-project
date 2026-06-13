@@ -53,21 +53,18 @@ chmod 0700 ~/.kube
 
 Log out and back in after running this.
 
----
 
 ### Enable add-ons
 ```bash
 microk8s enable dns registry ingress metrics-server
 ```
 
----
 
 ### Optional alias
 ```bash
 alias kubectl='microk8s kubectl'
 ```
 
----
 
 ## 📁 Project Structure
 ```
@@ -81,7 +78,6 @@ Dockerfile
 README.md
 ```
 
----
 
 ## 🧠 Resource Limits
 Set in `k8s/deployment.yaml`:
@@ -93,7 +89,6 @@ Set in `k8s/deployment.yaml`:
 
 This helps prevent crashes if the machine is limited.
 
----
 
 ## 🚀 Deployment
 
@@ -107,21 +102,18 @@ docker build -t localhost:32000/stateless-app:v1 .
 docker push localhost:32000/stateless-app:v1
 ```
 
----
 
 ### Apply configs
 ```bash
 kubectl apply -f k8s/
 ```
 
----
 
 ### Check status
 ```bash
 kubectl get deployments,pods,services,ingress,hpa
 ```
 
----
 
 ## ✅ Testing
 
@@ -131,7 +123,6 @@ curl http://localhost:32000/v2/_catalog
 kubectl get deployment stateless-app-deployment -o yaml | grep image
 ```
 
----
 
 ### Load balancing test
 ```bash
@@ -143,7 +134,6 @@ done
 
 You should see different pods responding over time.
 
----
 
 ### Self-healing test
 ```bash
@@ -154,7 +144,6 @@ kubectl get pods -w
 
 The deleted pod should get recreated automatically.
 
----
 
 ### Auto scaling test
 
