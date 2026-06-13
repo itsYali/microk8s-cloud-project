@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stateless-app-deployment
+  labels:
+    app: stateless-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: stateless-app
+  template:
+    metadata:
+      labels:
+        app: stateless-app
+    spec:
+      containers:
+      - name: web-app
+        image: localhost:32000/stateless-app:v1
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8000
+        
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "100m"
+          limits:
+            memory: "128Mi"
+            cpu: "250m"
+        
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 8000
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /healthz
+            port: 8000
+          initialDelaySeconds: 5
+          periodSeconds: 10
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: stateless-app-service
+spec:
+  selector:
+    app: stateless-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8000
+  type: ClusterIP
