@@ -12,6 +12,8 @@ It includes:
 
 Everything is kept lightweight so it can run on lower-end hardware without issues.
 
+<br/>
+
 ---
 
 ## ⚡ Quick Start
@@ -32,12 +34,16 @@ Check if everything is running:
 kubectl get deployments,pods,services,ingress,hpa
 ```
 
+<br/>
+
 ---
 
 ## ⚙️ Requirements
 - MicroK8s
 - Docker (or Podman)
 - Linux system
+
+<br/>
 
 ---
 
@@ -65,6 +71,8 @@ microk8s enable dns registry ingress metrics-server
 alias kubectl='microk8s kubectl'
 ```
 
+<br/>
+
 ---
 
 ## 📁 Project Structure
@@ -79,6 +87,8 @@ Dockerfile
 README.md
 ```
 
+<br/>
+
 ---
 
 ## 🧠 Resource Limits
@@ -90,6 +100,8 @@ Set in `k8s/deployment.yaml`:
 | Memory | 64Mi | 128Mi |
 
 This helps prevent crashes if the machine is limited.
+
+<br/>
 
 ---
 
@@ -116,6 +128,8 @@ kubectl apply -f k8s/
 ```bash
 kubectl get deployments,pods,services,ingress,hpa
 ```
+
+<br/>
 
 ---
 
@@ -167,6 +181,8 @@ kubectl get hpa -w
 ```
 
 Pods should scale up when load increases.
+
+<br/>
 
 ---
 
