@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: stateless-app-deployment
+  name: myapp-deployment
   labels:
-    app: stateless-app
+    app: myapp
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: stateless-app
+      app: myapp
   template:
     metadata:
       labels:
-        app: stateless-app
+        app: myapp
     spec:
       containers:
       - name: web-app
-        image: localhost:32000/stateless-app:v1
+        image: localhost:32000/myapp:v1
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8000
@@ -45,10 +45,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: stateless-app-service
+  name: myapp-service
 spec:
   selector:
-    app: stateless-app
+    app: myapp
   ports:
     - protocol: TCP
       port: 80

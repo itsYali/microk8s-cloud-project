@@ -10,7 +10,7 @@ def read_root():
         "status": "Online",
         "pod_name": os.getenv("HOSTNAME", "Unknown-Pod"),
         "pod_ip": socket.gethostbyname(socket.gethostname()),
-        "message": "MicroK8s stateless service operational"
+        "message": "MicroK8s is working"
     }
 
 @app.get("/healthz")

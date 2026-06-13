@@ -1,12 +1,12 @@
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: stateless-app-hpa
+  name: myapp-hpa
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: stateless-app-deployment
+    name: myapp-deployment
   minReplicas: 2
   maxReplicas: 6
   metrics:
