@@ -31,8 +31,8 @@ Everything is kept lightweight so it can run on lower-end hardware without issue
 git clone https://github.com/itsYali/microk8s-cloud-project
 cd microk8s-cloud-project
 
-docker build -t localhost:32000/stateless-app:v1 .
-docker push localhost:32000/stateless-app:v1
+docker build -t localhost:32000/myapp:v1 .
+docker push localhost:32000/myapp:v1
 
 kubectl apply -f k8s/
 ```
@@ -109,12 +109,12 @@ This helps prevent crashes if the machine is limited.
 
 ### Build image
 ```bash
-docker build -t localhost:32000/stateless-app:v1 .
+docker build -t localhost:32000/myapp:v1 .
 ```
 
 ### Push image
 ```bash
-docker push localhost:32000/stateless-app:v1
+docker push localhost:32000/myapp:v1
 ```
 
 
@@ -138,7 +138,7 @@ kubectl get deployments,pods,services,ingress,hpa
 ### Registry check
 ```bash
 curl http://localhost:32000/v2/_catalog
-kubectl get deployment stateless-app-deployment -o yaml | grep "image:"
+kubectl get deployment myapp-deployment -o yaml | grep "image:"
 ```
 
 
@@ -167,12 +167,12 @@ The deleted pod should get recreated automatically.
 
 Manual:
 ```bash
-kubectl scale deployment stateless-app-deployment --replicas=5
+kubectl scale deployment myapp-deployment --replicas=5
 ```
 
 Load-based:
 ```bash
-kubectl run -i --tty load-generator --rm   --image=busybox:latest --restart=Never   -- /bin/sh -c "while true; do wget -q -O- http://stateless-app-service; done"
+kubectl run -i --tty load-generator --rm   --image=busybox:latest --restart=Never   -- /bin/sh -c "while true; do wget -q -O- http://myapp-service; done"
 ```
 
 Monitor:
