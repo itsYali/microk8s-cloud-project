@@ -138,7 +138,7 @@ kubectl get deployments,pods,services,ingress,hpa
 ### Registry check
 ```bash
 curl http://localhost:32000/v2/_catalog
-kubectl get deployment stateless-app-deployment -o yaml | grep image
+kubectl get deployment stateless-app-deployment -o yaml | grep "image:"
 ```
 
 
