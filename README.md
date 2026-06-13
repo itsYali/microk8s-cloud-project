@@ -175,14 +175,5 @@ kubectl get hpa -w
 
 Pods should scale up when load increases.
 
----
-
-## 🎯 Key Features
-- Everything runs locally
-- Designed to be simple and easy to test
-- Good for learning Kubernetes basics
-
----
-
 ## 🏁 Conclusion
 This project is just a small demo, but it shows how scaling, load balancing, and self-healing work together in Kubernetes.
