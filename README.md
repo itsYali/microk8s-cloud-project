@@ -16,6 +16,15 @@ Everything is kept lightweight so it can run on lower-end hardware without issue
 
 ---
 
+## ⚙️ Requirements
+- MicroK8s
+- Docker
+- Linux system
+
+<br/>
+
+---
+
 ## ⚡ Quick Start
 
 ```bash
@@ -33,15 +42,6 @@ Check if everything is running:
 ```bash
 kubectl get deployments,pods,services,ingress,hpa
 ```
-
-<br/>
-
----
-
-## ⚙️ Requirements
-- MicroK8s
-- Docker (or Podman)
-- Linux system
 
 <br/>
 
